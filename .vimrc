@@ -34,12 +34,14 @@
 	set showmatch
 	set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]	
 	set t_Co=256
-	:colorscheme darkspectrum
+	:colorscheme solarized
 	:set guioptions-=m
 	:set guioptions-=T
 	:set guioptions-=L
 	:set guioptions-=r
 	:set guioptions-=b
+	":set listchars=tab:>> 
+	":set list
 " }
 
 " Text Formatting/Layout {

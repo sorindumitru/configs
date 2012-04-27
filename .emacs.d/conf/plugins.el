@@ -1,4 +1,6 @@
-;; Ido mode
+(add-to-list 'load-path "~/.emacs.d/vendor")
+
+;; Ido mode:
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
@@ -15,7 +17,9 @@
 (color-theme-initialize)
 (setq load-path (cons "~/.emacs.d/conf/themes" load-path))
 (load "color-theme-solarized")
-(color-theme-solarized-light)
+(load "color-theme-molokai-ob")
+(load "color-theme-blackboard")
+(color-theme-blackboard)
 
 ;; Python mode
 (require 'python-mode)
@@ -25,9 +29,10 @@
 (require 'anything)
 
 ;; Yasnippet
+(add-to-list 'load-path "~/.emacs.d/vendor/yasnippet")
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory "~/.emacs.d/snippets/")
+(yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets/")
 
 ;; Haskell mode
 (load "~/.emacs.d/conf/haskell/haskell-site-file")
@@ -35,9 +40,9 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 ;; Whitespace
-(require 'whitespace)
-(global-whitespace-mode t)
-(global-whitespace-toggle-options '(N n N))
+;(require 'whitespace)
+;(global-whitespace-mode t)
+;(global-whitespace-toggle-options '(N n N))
 
 ;; Octave
 (autoload 'octave-mode "octave-mod" nil t)
@@ -47,3 +52,5 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/autocomplete")
 (require 'auto-complete-config)
 (ac-config-default)
+
+(global-linum-mode t)

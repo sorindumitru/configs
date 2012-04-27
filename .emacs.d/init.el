@@ -14,3 +14,4 @@
 		       "indent.el"
 		       )
 )
+(put 'dired-find-alternate-file 'disabled nil)

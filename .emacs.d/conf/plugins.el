@@ -22,6 +22,7 @@
 (color-theme-blackboard)
 
 ;; Python mode
+(econf:load-plugin "python-mode")
 (require 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
@@ -29,7 +30,7 @@
 (require 'anything)
 
 ;; Yasnippet
-(add-to-list 'load-path "~/.emacs.d/vendor/yasnippet")
+(econf:load-plugin "yasnippet")
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets/")
@@ -49,7 +50,7 @@
 (setq auto-mode-alist (cons '("\\.m$" . octave-mode) auto-mode-alist))
 
 ;; Autocomplete
-(add-to-list 'load-path "~/.emacs.d/vendor/autocomplete")
+(econf:load-plugin "autocomplete")
 (require 'auto-complete-config)
 (ac-config-default)
 

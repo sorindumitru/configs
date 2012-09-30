@@ -12,3 +12,6 @@
 (mouse-wheel-mode t)
 (global-hl-line-mode t)
 (setq undo-limit 100000)
+
+;; Font
+(set-default-font "Inconsolata-10")

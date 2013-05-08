@@ -1,56 +1,78 @@
-"
-" Stolen from http://www.vi-improved.org/vimrc.php
-"
-
 " Basics {
 	set nocompatible
 	set background=dark
 	syntax on
-	call pathogen#infect()
-" }
-
-" General {
+	" change map leader
+	let mapleader = ","
+	let g:mapleader = ","
 	set nobackup
-	filetype plugin indent on
-	set backspace=indent,eol,start
+	filetype plugin on
+	filetype indent on
+	set history=700
 	set nobackup
 	set mouse=a
-	set noerrorbells
-	set wildmenu
-	set wildignore=*.o
-	set wildmode=list:longest
+	set tabpagemax=128
 " }
 
 " Vim UI {
+	set so=7
 	set cursorline
 	set incsearch
 	set laststatus=2
 	set linespace=0
 	set matchtime=5
 	set novisualbell
+	set vb
 	set number
 	set scrolloff=10
 	set showcmd
 	set showmatch
 	set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]	
-	set t_Co=256
-	:colorscheme solarized
-	:set guioptions-=m
-	:set guioptions-=T
-	:set guioptions-=L
-	:set guioptions-=r
-	:set guioptions-=b
-	":set listchars=tab:>> 
-	":set list
+	set guioptions-=m
+	set guioptions-=T
+	set guioptions-=L
+	set guioptions-=r
+	set guioptions-=b
+	set list listchars=tab:»·,trail:·
+	set wildmenu
+	set wildignore=*.o,*~,*.pyc
+	set wildmode=list:longest
+	set ruler
+	set cmdheight=2
+	set hid
+	set backspace=indent,eol,start
+	set whichwrap+=<,>,h,l	
+	set ignorecase
+	set smartcase
+	set infercase
+	set hlsearch
+	set magic
+	set noerrorbells
+	set novisualbell
+	set t_vb=
+	set tm=500
+	set nobackup
+	set nowb
+	set noswapfile
 " }
 
 " Text Formatting/Layout {
-	set ignorecase
-	set infercase
-	set nowrap
-	set smartcase
 	set shiftwidth=8
 	set tabstop=8
+
+	set t_Co=256
+	colorscheme zenburn
+	set background=dark
+
+	if has("gui_running")
+		set guioptions-=T
+		set guioptions+=e
+		set guitablabel=%M\ %t
+		colorscheme codeschool
+	endif
+
+	set encoding=utf8
+	set ffs=unix,dos,mac
 " }
 
 " Folding {
@@ -61,22 +83,42 @@
 	set foldopen=block,hor,mark,percent,quickfix,tag
 " }
 
-" Plugins {
-	let Tlist_Auto_Open=0 " let the tag list open automagically
-	let Tlist_Compact_Format = 1 " show small menu
-	let Tlist_Ctags_Cmd = 'ctags' " location of ctags
-	let Tlist_Enable_Fold_Column = 0 " do show folding tree
-	let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill 
-				       " yourself
-	let Tlist_File_Fold_Auto_Close = 0 " fold closed other trees
-	let Tlist_Sort_Type = "name" " order by 
-	let Tlist_Use_Right_Window = 1 " split to the right side
-                                       " of the screen
-	let Tlist_WinWidth = 40 " 40 cols wide, so i can (almost always)
-                                " read my functions
+" Formatting {
+	set nowrap
+	set autoindent
+	set shiftwidth=8
+	set tabstop=8
+	set softtabstop=8
 " }
 
-" Cscope {
+" Bundles {
+	filetype off
+	set rtp+=~/.vim/bundle/vundle/
+	call vundle#rc()
+	Bundle 'gmarik/vundle'
+	Bundle 'tpope/vim-fugitive'
+	Bundle 'Lokaltog/vim-easymotion'
+	Bundle 'Lokaltog/vim-powerline'
+	Bundle 'vim-scripts/taglist.vim'
+	Bundle 'scrooloose/nerdtree'
+	Bundle 'vim-scripts/CSApprox'
+	Bundle 'altercation/vim-colors-solarized'
+	Bundle "MarcWeber/vim-addon-mw-utils"
+	Bundle "tomtom/tlib_vim"
+	Bundle "honza/vim-snippets"
+	Bundle 'garbas/vim-snipmate'
+	filetype plugin indent on
+" }
+
+" Easymotion {
+	let g:EasyMotion_leader_key = '<Leader>'
+" }
+
+" Powerline {
+	let g:Powerline_symbols = 'fancy'
+" }
+
+"" Cscope {
 if has("cscope")
 	" Look for a 'cscope.out' file starting from the current directory,
 	" going up to the root directory.
@@ -123,4 +165,45 @@ endif
 	nnoremap <F6> :NERDTreeToggle<CR>
 	nnoremap <F7> :TlistToggle<CR>
 	map <F9>e :!p4 edit '%'<CR>
+
+	"Window movement
+	map <C-j> <C-W>j
+	map <C-k> <C-W>k
+	map <C-h> <C-W>h
+	map <C-l> <C-W>l
+	
+	" Switch CWD to the directory of the open buffer
+	map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+	" Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
+	nmap <M-j> mz:m+<cr>`z
+	nmap <M-k> mz:m-2<cr>`z
+	vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+	vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`zv
+
+	" Pressing ,ss will toggle and untoggle spell checking
+	map <leader>ss :setlocal spell!<cr>
+
+	" Shortcuts using <leader>
+	map <leader>sn ]s
+	map <leader>sp [s
+	map <leader>sa zg
+	map <leader>s? z=
 " }
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite *.py :call DeleteTrailingWS()
+

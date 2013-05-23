@@ -1,4 +1,4 @@
-" Basics {
+﻿" Basics {
 	set nocompatible
 	set background=dark
 	syntax on
@@ -33,7 +33,7 @@
 	set guioptions-=L
 	set guioptions-=r
 	set guioptions-=b
-	set list listchars=tab:»·,trail:·
+	"set list listchars=tab:»·,trail:·
 	set wildmenu
 	set wildignore=*.o,*~,*.pyc
 	set wildmode=list:longest
@@ -54,6 +54,7 @@
 	set nobackup
 	set nowb
 	set noswapfile
+	set guifont=Inconsolata\ for\ Powerline\ 10
 " }
 
 " Text Formatting/Layout {
@@ -98,7 +99,7 @@
 	Bundle 'gmarik/vundle'
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'Lokaltog/vim-easymotion'
-	Bundle 'Lokaltog/vim-powerline'
+	Bundle 'Lokaltog/powerline'
 	Bundle 'vim-scripts/taglist.vim'
 	Bundle 'scrooloose/nerdtree'
 	Bundle 'vim-scripts/CSApprox'
@@ -115,7 +116,12 @@
 " }
 
 " Powerline {
+	set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 	let g:Powerline_symbols = 'fancy'
+" }
+
+" Taglist {
+	let Tlist_Use_Right_Window = 1
 " }
 
 "" Cscope {

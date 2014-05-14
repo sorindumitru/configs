@@ -1,26 +1,19 @@
-(defconst econf:emacs-config-dir "~/.emacs.d/conf/" "")
-(defconst econf:emacs-vendor-dir "~/.emacs.d/vendor/" "")
+(require 'cl)
 
-(defun econf:load-config-file (filelist)
-  (dolist (file filelist)
-    (load (expand-file-name
-	   (concat econf:emacs-config-dir file)))
-    (message "Loaded config file:%s" file)
-  )
-)
+(load-file "~/.emacs.d/load-directory.el")
+(require 'load-directory)
 
-(defun econf:load-plugin (plugin)
-  (add-to-list 'load-path (expand-file-name
-			  (concat econf:emacs-vendor-dir plugin)
-			  )
-	       )
-)
-
-(econf:load-config-file '("general.el"
-		       "plugins.el"
-		       "bindings.el"
-		       "indent.el"
-		       )
-)
-
-(put 'dired-find-alternate-file 'disabled nil)
+(defconst emacs-config-dir "~/.emacs.d/configs")
+(load-directory emacs-config-dir)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("e890fd7b5137356ef5b88be1350acf94af90d9d6dd5c234978cd59a6b873ea94" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

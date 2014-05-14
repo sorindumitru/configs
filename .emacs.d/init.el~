@@ -1,0 +1,7 @@
+(defvar emacs-config-directory "~/.emacs.d/configs")
+(defvar emacs-config-files
+	(list 'ui.el 'packages.el)
+)
+
+(dolist (config-file emacs-config-files)
+	('

@@ -1,0 +1,33 @@
+(require 'package)
+(package-initialize)
+;; Add the original Emacs Lisp Package Archive
+(add-to-list 'package-archives '("elpa" . "http://tromey.com/elpa/"))
+;; Add the user-contributed repository
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(defvar elpa-package-list '(
+			    ack-and-a-half
+			    cmake-mode
+			    cmake-project
+			    cpputils-cmake
+			    flycheck
+			    flymake
+			    helm
+			    ;; Themes
+			    ample-zen-theme
+			    dakrone-theme
+			    gandalf-theme
+			     ))
+
+
+(defun elpa-packages-installed-p ()
+  (loop for pkg in elpa-package-list
+        when (not (package-installed-p pkg)) do (return nil)
+        finally (return t)))
+
+(unless (elpa-packages-installed-p)
+  (message "%s" "Refreshing package database...")
+  (package-refresh-contents)
+  (dolist (pkg elpa-package-list)
+    (when (not (package-installed-p pkg))
+      (package-install pkg))))

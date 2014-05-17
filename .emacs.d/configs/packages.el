@@ -7,6 +7,7 @@
 
 (defvar elpa-package-list '(
 			    ack-and-a-half
+			    blank-mode
 			    cmake-mode
 			    cmake-project
 			    cpputils-cmake
@@ -18,8 +19,11 @@
 			    yasnippet-bundle
 			    helm
 			    helm-ack
+			    helm-c-yasnippet
 			    helm-flycheck
-			    helm-flymakeo
+			    helm-flymake
+			    helm-ls-git
+			    smart-tabs-mode
 			    ;; Themes
 			    ample-zen-theme
 			    gandalf-theme
@@ -38,8 +42,12 @@
         finally (return t)))
 
 (unless (elpa-packages-installed-p)
-  (message "%s" "Refreshing package database...")
   (package-refresh-contents)
   (dolist (pkg elpa-package-list)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
+
+(load "~/.emacs.d/configs/packages/ack.el")
+(load "~/.emacs.d/configs/packages/helm-conf.el")
+(load "~/.emacs.d/configs/packages/smarttabs.el")
+(load "~/.emacs.d/configs/packages/yas.el")

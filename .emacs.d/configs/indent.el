@@ -29,3 +29,7 @@
                 (c-set-style "linux-tabs-only")))))
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+(load "~/.emacs.d/google-c-style.el")
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)

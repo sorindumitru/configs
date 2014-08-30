@@ -1,7 +1,0 @@
-(setq inhibit-splash-screen t initial-scratch-message nil)
-
-(scroll-bar-mode nil)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-
-(load-theme 'wheatgrass t)

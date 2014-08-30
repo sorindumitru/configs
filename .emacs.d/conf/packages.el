@@ -7,6 +7,8 @@
 
 (defvar elpa-package-list '(
 			  ack-and-a-half
+			  aurel
+			  cmake-mode
 			  helm
 			  magit
 			  sublime-themes

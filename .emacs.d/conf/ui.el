@@ -1,8 +1,9 @@
 (setq inhibit-splash-screen t initial-scratch-message nil)
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;(set-default-font "Pragmata Pro")
+(set-default-font "Pragmata Pro")
 
 (scroll-bar-mode -1)
 (tool-bar-mode -1)

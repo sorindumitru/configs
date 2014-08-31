@@ -9,7 +9,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 
-(load-theme 'wilson t)
+(load-theme 'oldlace t)
 
 (global-hl-line-mode 1)
 (show-paren-mode 1)

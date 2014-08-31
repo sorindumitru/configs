@@ -11,6 +11,7 @@
 			  cmake-mode
 			  helm
 			  magit
+			  oldlace-theme
 			  sublime-themes
 			  twilight-theme
 			  ))

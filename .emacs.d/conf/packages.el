@@ -10,6 +10,7 @@
 			  aurel
 			  cmake-mode
 			  helm
+			  haskell-mode
 			  magit
 			  oldlace-theme
 			  sublime-themes

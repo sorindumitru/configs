@@ -5,11 +5,25 @@
 
 (set-default-font "Pragmata Pro")
 
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
+(when (window-system)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (menu-bar-mode -1))
 
-(load-theme 'oldlace t)
+(load-theme 'leuven t)
 
 (global-hl-line-mode 1)
 (show-paren-mode 1)
+
+(setq mouse-wheel-follow-mouse 't)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+(defun my-create-non-existent-directory ()
+  (let ((parent-directory (file-name-directory buffer-file-name)))
+    (when (and (not (file-exists-p parent-directory))
+	       (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
+      (make-directory parent-directory t))))
+(add-to-list 'find-file-not-found-functions #'my-create-non-existent-directory)

@@ -3,8 +3,6 @@
 (setq auto-save-default nil)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(set-default-font "Pragmata Pro")
-
 (when (window-system)
   (scroll-bar-mode -1)
   (tool-bar-mode -1)

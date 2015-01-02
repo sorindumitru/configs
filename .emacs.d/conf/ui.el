@@ -10,7 +10,7 @@
   (tool-bar-mode -1)
   (menu-bar-mode -1))
 
-(load-theme 'leuven t)
+(load-theme 'hickey t)
 
 (global-hl-line-mode 1)
 (show-paren-mode 1)
@@ -27,3 +27,5 @@
 	       (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions #'my-create-non-existent-directory)
+
+(add-hook 'org-mode-hook 'turn-on-flyspell)

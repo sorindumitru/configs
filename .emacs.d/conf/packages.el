@@ -30,6 +30,6 @@
 (load "~/.emacs.d/conf/helm-conf.el")
 (load "~/.emacs.d/conf/evil-conf.el")
 (load "~/.emacs.d/conf/rust-conf.el")
-(load "~/.emacs.d/conf/irc.el")
-(load "~/.emacs.d/conf/org-mode.el")
+(load "~/.emacs.d/conf/irc-conf.el")
+(load "~/.emacs.d/conf/org-conf.el")
 (load "~/.emacs.d/conf/emms-conf.el")

@@ -4,20 +4,29 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (defvar elpa-package-list '(
-			  ack-and-a-half
 			  aurel
 			  bookmark+
 			  cmake-mode
+			  company
 			  emms
 			  evil
+			  go-mode
+			  go-projectile
 			  helm
 			  haskell-mode
-			  go-mode
+			  helm-gtags
+			  helm-projectile
+			  lenlen-theme
 			  magit
 			  oldlace-theme
 			  powerline
 			  perspective
+			  persp-projectile
+			  projectile
 			  rust-mode
+			  smart-mode-line
+			  smart-mode-line-powerline-theme
+			  solarized-theme
 			  sublime-themes
 			  twilight-theme
 			  ))
@@ -33,3 +42,6 @@
 (load "~/.emacs.d/conf/irc-conf.el")
 (load "~/.emacs.d/conf/org-conf.el")
 (load "~/.emacs.d/conf/emms-conf.el")
+(load "~/.emacs.d/conf/sml-conf.el")
+(load "~/.emacs.d/conf/go-conf.el")
+(load "~/.emacs.d/conf/ggtags-conf.el")

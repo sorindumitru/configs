@@ -198,6 +198,8 @@ endfunction
 	Plugin 'vim-scripts/tagbar'
 	Plugin 'flazz/vim-colorschemes'
 	Plugin 'mileszs/ack.vim'
+	Plugin 'fatih/vim-go'
+        Plugin 'wting/rust.vim'
 	call vundle#end()
 	filetype plugin indent on
 " }

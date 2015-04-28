@@ -13,6 +13,7 @@
 			  go-mode
 			  go-projectile
 			  helm
+			  helm-cscope
 			  haskell-mode
 			  helm-gtags
 			  helm-projectile
@@ -29,6 +30,7 @@
 			  solarized-theme
 			  sublime-themes
 			  twilight-theme
+			  xcscope
 			  ))
 
 (package-initialize)

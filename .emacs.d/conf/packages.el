@@ -9,7 +9,6 @@
 			  cmake-mode
 			  company
 			  emms
-			  evil
 			  go-mode
 			  go-projectile
 			  helm
@@ -39,7 +38,6 @@
     (package-install pkg)))
 
 (load "~/.emacs.d/conf/helm-conf.el")
-(load "~/.emacs.d/conf/evil-conf.el")
 (load "~/.emacs.d/conf/rust-conf.el")
 (load "~/.emacs.d/conf/irc-conf.el")
 (load "~/.emacs.d/conf/org-conf.el")

@@ -74,6 +74,10 @@
   (load-theme 'lab-light t)
   )
 
+(use-package srcery-theme
+  :ensure t
+  )
+
 (use-package spaceline
   :ensure t
   :config

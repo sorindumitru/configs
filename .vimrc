@@ -6,22 +6,25 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'srcery-colors/srcery-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
-Plug 'valloric/youcompleteme'
 Plug 'flazz/vim-colorschemes'
-Plug 'w0rp/ale'
 Plug 'sirver/ultisnips'
-Plug 'leafgarland/typescript-vim'
 Plug 'rust-lang/rust.vim'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
+
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 set autoindent
 set backspace=indent,eol,start
@@ -82,7 +85,7 @@ endif
 
 inoremap <C-U> <C-G>u<C-U>
 
-colorscheme srcery
+colorscheme iceberg
 
 " vim:set ft=vim et sw=2:
 
